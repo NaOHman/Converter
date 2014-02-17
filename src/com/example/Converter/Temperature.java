@@ -26,8 +26,8 @@ public class Temperature extends Activity{
         convertedUnits.setAdapter(conversionAdapter);
 
         Spinner selectUnit = (Spinner) findViewById(R.id.temperature_select_spinner);
-        String[] unitTypes = new String[]{"C", "F"};
-        ArrayAdapter<String> unitAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, unitTypes);
+        ArrayAdapter<CharSequence> unitAdapter = ArrayAdapter.createFromResource(
+                this, R.array.temperature_units,android.R.layout.simple_spinner_dropdown_item);
         selectUnit.setAdapter(unitAdapter);
         selectUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -65,7 +65,7 @@ public class Temperature extends Activity{
 
     private ArrayList<String> convert(double i, String units){
         ArrayList<String> converted = new ArrayList<String>();
-        if (units == "C"){
+        if (units.equals("C")){
             converted.add("C: " + i);
             converted.add("F: " + (9.0/5.0 * i + 32));
         } else {

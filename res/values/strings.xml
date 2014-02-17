@@ -7,4 +7,25 @@
     <string name="volume_name">Volume</string>
     <string name="prompt_text">Pick a Unit Type</string>
     <string name="calculate_prompt">Go</string>
+    <string-array name="distance_units">
+        <item>m</item>
+        <item>mm</item>
+        <item>cm</item>
+        <item>km</item>
+        <item>in</item>
+        <item>ft</item>
+        <item>yd</item>
+        <item>mile</item>
+    </string-array>
+    <string-array name="weight_units">
+        <item>g</item>
+        <item>mg</item>
+        <item>kg</item>
+        <item>oz</item>
+        <item>lb</item>
+    </string-array>
+    <string-array name="temperature_units">
+        <item>C</item>
+        <item>F</item>
+    </string-array>
 </resources>

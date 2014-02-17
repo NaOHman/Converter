@@ -30,8 +30,8 @@ public class Weight extends Activity{
         convertedUnits.setAdapter(conversionAdapter);
 
         Spinner selectUnit = (Spinner) findViewById(R.id.weight_select_spinner);
-        String[] unitTypes = new String[]{"g","kg","mg","oz","lb"};
-        ArrayAdapter<String> unitAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, unitTypes);
+        ArrayAdapter<CharSequence> unitAdapter = ArrayAdapter.createFromResource(
+                this, R.array.weight_units,android.R.layout.simple_spinner_dropdown_item);
         selectUnit.setAdapter(unitAdapter);
         selectUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -78,13 +78,13 @@ public class Weight extends Activity{
     }
 
     private double toGrams(double i, String unit){
-        if (unit == "g"){
+        if (unit.equals("g")){
             return i;
-        } else if (unit == "kg") {
+        } else if (unit.equals("kg")) {
             return i / KILOGRAM;
-        } else if  (unit == "mg") {
+        } else if  (unit.equals("mg")) {
             return i / MILLIGRAM;
-        } else if (unit == "oz") {
+        } else if (unit.equals("oz")) {
             return i / OUNCE;
         } else {
             return i / POUND;

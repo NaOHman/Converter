@@ -32,8 +32,8 @@ public class Distance extends Activity{
         convertedUnits.setAdapter(conversionAdapter);
 
         Spinner selectUnit = (Spinner) findViewById(R.id.distance_select_spinner);
-        String[] unitTypes = new String[]{"m","mm","cm","km","in","ft","yd","mile"};
-        ArrayAdapter<String> unitAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, unitTypes);
+        ArrayAdapter<CharSequence> unitAdapter = ArrayAdapter.createFromResource(
+                this, R.array.distance_units,android.R.layout.simple_spinner_dropdown_item);
         selectUnit.setAdapter(unitAdapter);
         selectUnit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -83,17 +83,17 @@ public class Distance extends Activity{
     }
 
     private double toMeters(double i, String unit){
-        if (unit == "m"){
+        if (unit.equals("m")){
             return i;
-        } else if (unit == "km") {
+        } else if (unit.equals("km")) {
             return i / KILOMETER;
-        } else if  (unit == "mm") {
+        } else if  (unit.equals("mm")) {
             return i / MILLIMETER;
-        } else if (unit == "in") {
+        } else if (unit.equals("in")) {
             return i / INCH;
-        } else if (unit == "ft"){
+        } else if (unit.equals("ft")){
             return i / FOOT;
-        } else if (unit == "yd"){
+        } else if (unit.equals("yd")){
             return i / YARD;
         } else {
             return i / MILE;
